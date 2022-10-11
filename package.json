@@ -1,9 +1,32 @@
 {
   "name": "zapfy-sdk",
   "author": "André Rebonato @vektar.tech",
+  "description": "A package to request all routes on ZapFy",
   "version": "1.0.3",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
   "dependencies": {
     "axios": "^0.27.2"
   },
-  "type":"module"
+  "devDependencies": {
+    "microbundle": "0.14.2",
+    "typescript": "4.6.3",
+    "ts-node-dev": "^2.0.0"
+  },
+  "type":"module",
+  "engines": {
+    "node": "16.x"
+  }
 }
