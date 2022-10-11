@@ -13,22 +13,22 @@
 
 ## Install
 
-shell
 npm i zapfy-sdk
 # or
+
 yarn add zapfy-sdk
 
 
 ## Example (how to use)
 ```js
-    import { ZapfySdk } from 'zapfy-sdk';
+import { ZapfySdk } from 'zapfy-sdk';
 
-     await ZapfySdk.Message.sendTextMessage({
-        destination: '55 27 99999999',
-        text: 'Uma mensagem de texto diretamente do sdk',
-        instanceKey: 'INSTANCE_KEY_GOES_HERE',
-        instanceToken: 'INSTANCE_TOKEN_GOES_HERE'
-    });
+await ZapfySdk.Message.sendTextMessage({
+    destination: '55 27 99999999',
+    text: 'Uma mensagem de texto diretamente do sdk',
+    instanceKey: 'INSTANCE_KEY_GOES_HERE',
+    instanceToken: 'INSTANCE_TOKEN_GOES_HERE'
+});
 ```
 
 
