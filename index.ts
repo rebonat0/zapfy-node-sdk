@@ -1,4 +1,2 @@
-import { ZapfySdk } from "./src/sdk";
-import { ZapfyTypes } from "./src/types";
-
-export { ZapfySdk, ZapfyTypes };
+export * from "./src/sdk";
+export * from "./src/types";
