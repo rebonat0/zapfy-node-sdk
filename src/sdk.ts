@@ -246,7 +246,6 @@ export namespace ZapfySdk {
             }
         }
     }
-
     export namespace Message {
         export const sendTextMessage = async (
            params: ZapfyTypes.SendTextMessageParams,
@@ -343,6 +342,34 @@ export namespace ZapfySdk {
                 >(`/instance/${instanceKey}/token/${instanceToken}/message?type=location`, { 
                     lat,
                     long,
+                    instanceKey,
+                    instanceToken,
+                });
+
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
+        export const sendMediaMessage = async (
+            params: ZapfyTypes.SendMediaMessageParams,
+        ): Promise<ZapfyTypes.DefaultMessageResponse> => {
+            try {
+                const {
+                    base64,
+                    fileName,
+                    type,
+                    instanceKey,
+                    instanceToken,
+                } = params;
+                
+                const response = await client.post<
+                    ZapfyTypes.DefaultMessageResponse,
+                    AxiosResponse<ZapfyTypes.DefaultMessageResponse> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/message?type=${type}`, { 
+                    base64,
+                    fileName,
                     instanceKey,
                     instanceToken,
                 });

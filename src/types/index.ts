@@ -19,6 +19,11 @@ export namespace ZapfyTypes {
     
     export type SendLocationParams = DefaultParamsWithDestination & { lat: string, long: string };
     export type SendTextMessageParams = DefaultParamsWithDestination & { text: string };
+    export type SendMediaMessageParams = DefaultParamsWithDestination & { 
+        type: MediaType,
+        base64: string,
+        fileName?: string,
+    };
     export type SendButtonsMessageParams = DefaultParamsWithDestination & {
         buttons: Button[],
         text: string,
