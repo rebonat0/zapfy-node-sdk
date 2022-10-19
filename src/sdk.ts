@@ -362,6 +362,7 @@ export namespace ZapfySdk {
                     type,
                     instanceKey,
                     instanceToken,
+                    text,
                 } = params;
                 
                 const response = await client.post<
@@ -370,8 +371,7 @@ export namespace ZapfySdk {
                 >(`/instance/${instanceKey}/token/${instanceToken}/message?type=${type}`, { 
                     base64,
                     fileName,
-                    instanceKey,
-                    instanceToken,
+                    text,
                 });
 
                 return response.data;

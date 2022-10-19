@@ -22,6 +22,7 @@ export namespace ZapfyTypes {
     export type SendMediaMessageParams = DefaultParamsWithDestination & { 
         type: MediaType,
         base64: string,
+        text?: string,
         fileName?: string,
     };
     export type SendButtonsMessageParams = DefaultParamsWithDestination & {

@@ -21,5 +21,6 @@ export declare namespace ZapfySdk {
         const sendButtonsMessage: (params: ZapfyTypes.SendButtonsMessageParams) => Promise<ZapfyTypes.DefaultMessageResponse>;
         const sendListMessage: (params: ZapfyTypes.SendListMessageParams) => Promise<ZapfyTypes.DefaultMessageResponse>;
         const sendLocationMessage: (params: ZapfyTypes.SendLocationParams) => Promise<ZapfyTypes.DefaultMessageResponse>;
+        const sendMediaMessage: (params: ZapfyTypes.SendMediaMessageParams) => Promise<ZapfyTypes.DefaultMessageResponse>;
     }
 }
