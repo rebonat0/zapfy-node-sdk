@@ -23,7 +23,7 @@ export namespace ZapfyTypes {
     
     export type MediaType = 'image' | 'audio' | 'video' | 'document';
 
-    export declare type GroupParticipant = (Contact & {
+    export type GroupParticipant = (Contact & {
         isAdmin?: boolean;
         isSuperAdmin?: boolean;
         admin?: 'admin' | 'superadmin' | null;

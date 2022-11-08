@@ -2,7 +2,7 @@
   "name": "zapfy-sdk",
   "author": "André Rebonato @vektar.tech",
   "description": "A package to request all routes on ZapFy",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",

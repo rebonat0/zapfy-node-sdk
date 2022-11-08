@@ -10,7 +10,61 @@ export declare namespace ZapfyTypes {
             title: string;
         }[];
     };
+    interface Contact {
+        id: string;
+        name?: string;
+        notify?: string;
+        verifiedName?: string;
+        imgUrl?: string;
+        status?: string;
+    }
     type MediaType = 'image' | 'audio' | 'video' | 'document';
+    type GroupParticipant = (Contact & {
+        isAdmin?: boolean;
+        isSuperAdmin?: boolean;
+        admin?: 'admin' | 'superadmin' | null;
+    });
+    interface GroupMetadata {
+        id: string;
+        owner: string | undefined;
+        subject: string;
+        subjectOwner?: string;
+        subjectTime?: number;
+        creation?: number;
+        desc?: string;
+        descOwner?: string;
+        descId?: string;
+        restrict?: boolean;
+        announce?: boolean;
+        size?: number;
+        participants: GroupParticipant[];
+        ephemeralDuration?: number;
+    }
+    type GroupUpdateSubjectParams = DefaultParams & {
+        groupId: string;
+        subject: string;
+    };
+    type GroupUpdateDescriptionParams = DefaultParams & {
+        groupId: string;
+        description: string;
+    };
+    type GroupInviteCodeParams = DefaultParams & {
+        groupId: string;
+    };
+    type GroupParticipantsUpdateParams = DefaultParams & {
+        groupId: string;
+        participants: string[];
+        action: 'add' | 'demote' | 'promote' | 'remove';
+    };
+    type GroupSettingsUpdateParams = DefaultParams & {
+        groupId: string;
+        setting: 'announcement' | 'not_announcement' | 'unlocked' | 'locked';
+    };
+    type CreateGroupParams = DefaultParams & {
+        name: string;
+        participants: string[];
+    };
+    type CreateGroupResponse = DefaultZapfyResultObject<GroupMetadata>;
     type UpdateProfileStatusParams = DefaultParams & {
         status: string;
     };

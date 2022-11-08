@@ -23,4 +23,17 @@ export declare namespace ZapfySdk {
         const sendLocationMessage: (params: ZapfyTypes.SendLocationParams) => Promise<ZapfyTypes.DefaultMessageResponse>;
         const sendMediaMessage: (params: ZapfyTypes.SendMediaMessageParams) => Promise<ZapfyTypes.DefaultMessageResponse>;
     }
+    namespace Group {
+        const createGroup: (params: ZapfyTypes.CreateGroupParams) => Promise<ZapfyTypes.CreateGroupResponse>;
+        const groupUpdateSubject: (params: ZapfyTypes.GroupUpdateSubjectParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<void>>;
+        const groupUpdateDescription: (params: ZapfyTypes.GroupUpdateDescriptionParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<void>>;
+        const groupInviteCode: (params: ZapfyTypes.GroupInviteCodeParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<string>>;
+        const groupRevokeInvite: (params: ZapfyTypes.GroupInviteCodeParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<string>>;
+        const groupMetadata: (params: ZapfyTypes.GroupInviteCodeParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<string>>;
+        const groupParticipantsUpdate: (params: ZapfyTypes.GroupParticipantsUpdateParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<{
+            status: string;
+            jid: string;
+        }[]>>;
+        const groupSettingUpdate: (params: ZapfyTypes.GroupSettingsUpdateParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<void>>;
+    }
 }
