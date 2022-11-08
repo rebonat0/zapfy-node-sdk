@@ -9,7 +9,55 @@ export namespace ZapfyTypes {
         rows: { id: string, title: string }[],
     };
 
+    export interface Contact {
+        id: string;
+        /** name of the contact, you have saved on your WA */
+        name?: string;
+        /** name of the contact, the contact has set on their own on WA */
+        notify?: string;
+        /** I have no idea */
+        verifiedName?: string;
+        imgUrl?: string;
+        status?: string;
+    }
+    
     export type MediaType = 'image' | 'audio' | 'video' | 'document';
+
+    export declare type GroupParticipant = (Contact & {
+        isAdmin?: boolean;
+        isSuperAdmin?: boolean;
+        admin?: 'admin' | 'superadmin' | null;
+    });
+    export interface GroupMetadata {
+        id: string;
+        owner: string | undefined;
+        subject: string;
+        /** group subject owner */
+        subjectOwner?: string;
+        /** group subject modification date */
+        subjectTime?: number;
+        creation?: number;
+        desc?: string;
+        descOwner?: string;
+        descId?: string;
+        /** is set when the group only allows admins to change group settings */
+        restrict?: boolean;
+        /** is set when the group only allows admins to write messages */
+        announce?: boolean;
+        /** number of group participants */
+        size?: number;
+        participants: GroupParticipant[];
+        ephemeralDuration?: number;
+    }
+
+    export type GroupUpdateSubjectParams = DefaultParams & { groupId: string, subject: string };
+    export type GroupUpdateDescriptionParams = DefaultParams & { groupId: string, description: string };
+    export type GroupInviteCodeParams = DefaultParams & { groupId: string };
+    export type GroupParticipantsUpdateParams = DefaultParams & { groupId: string, participants: string[], action: 'add' | 'demote' | 'promote' | 'remove' };
+    export type GroupSettingsUpdateParams = DefaultParams & { groupId: string, setting: 'announcement' | 'not_announcement' | 'unlocked' | 'locked'};
+
+    export type CreateGroupParams = DefaultParams & { name: string, participants: string[] };
+    export type CreateGroupResponse = DefaultZapfyResultObject<GroupMetadata>;
 
     export type UpdateProfileStatusParams = DefaultParams & { status: string };
     export type UpdateProfileNameParams = DefaultParams & { name: string };

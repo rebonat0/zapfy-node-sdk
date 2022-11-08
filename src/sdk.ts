@@ -380,4 +380,187 @@ export namespace ZapfySdk {
             }
         }
     }
+
+    export namespace Group {
+        export const createGroup = async (
+            params: ZapfyTypes.CreateGroupParams,
+        ): Promise<ZapfyTypes.CreateGroupResponse> => {
+             try {
+                const { 
+                    instanceKey,
+                    instanceToken,
+                    name,
+                    participants,
+                } = params;
+ 
+                const response = await client.post<
+                    ZapfyTypes.CreateGroupResponse,
+                    AxiosResponse<ZapfyTypes.CreateGroupResponse> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/createGroup`, { name, participants });
+ 
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
+        export const groupUpdateSubject = async (
+            params: ZapfyTypes.GroupUpdateSubjectParams,
+        ): Promise<ZapfyTypes.DefaultZapfyResultObject<void>> => {
+            try {
+                const { 
+                    instanceKey,
+                    instanceToken,
+                    groupId,
+                    subject,
+                } = params;
+ 
+                const response = await client.post<
+                    ZapfyTypes.DefaultZapfyResultObject<void>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<void>> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/groupUpdateSubject`, { groupId, subject });
+ 
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
+        export const groupUpdateDescription = async (
+            params: ZapfyTypes.GroupUpdateDescriptionParams,
+        ): Promise<ZapfyTypes.DefaultZapfyResultObject<void>> => {
+            try {
+                const { 
+                    instanceKey,
+                    instanceToken,
+                    groupId,
+                    description,
+                } = params;
+ 
+                const response = await client.post<
+                    ZapfyTypes.DefaultZapfyResultObject<void>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<void>> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/groupUpdateDescription`, { groupId, description });
+ 
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
+        export const groupInviteCode = async (
+            params: ZapfyTypes.GroupInviteCodeParams,
+        ): Promise<ZapfyTypes.DefaultZapfyResultObject<string>> => {
+            try {
+                const { 
+                    instanceKey,
+                    instanceToken,
+                    groupId,
+                } = params;
+ 
+                const response = await client.post<
+                    ZapfyTypes.DefaultZapfyResultObject<string>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<string>> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/groupInviteCode`, { groupId });
+ 
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
+        export const groupRevokeInvite = async (
+            params: ZapfyTypes.GroupInviteCodeParams,
+        ): Promise<ZapfyTypes.DefaultZapfyResultObject<string>> => {
+            try {
+                const { 
+                    instanceKey,
+                    instanceToken,
+                    groupId,
+                } = params;
+ 
+                const response = await client.post<
+                    ZapfyTypes.DefaultZapfyResultObject<string>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<string>> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/groupRevokeInvite`, { groupId });
+ 
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
+        export const groupMetadata = async (
+            params: ZapfyTypes.GroupInviteCodeParams,
+        ): Promise<ZapfyTypes.DefaultZapfyResultObject<string>> => {
+            try {
+                const { 
+                    instanceKey,
+                    instanceToken,
+                    groupId,
+                } = params;
+ 
+                const response = await client.post<
+                    ZapfyTypes.DefaultZapfyResultObject<string>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<string>> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/groupMetadata`, { groupId });
+ 
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
+        export const groupParticipantsUpdate = async (
+            params: ZapfyTypes.GroupParticipantsUpdateParams,
+        ): Promise<ZapfyTypes.DefaultZapfyResultObject<{ status: string, jid: string }[]>> => {
+            try {
+                const { 
+                    instanceKey,
+                    instanceToken,
+                    groupId,
+                    action,
+                    participants
+                } = params;
+ 
+                const response = await client.post<
+                    ZapfyTypes.DefaultZapfyResultObject<{ status: string, jid: string }[]>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<{ status: string, jid: string }[]>> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/groupParticipantsUpdate`, { 
+                    groupId,  
+                    action,
+                    participants,
+                });
+ 
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
+        export const groupSettingUpdate = async (
+            params: ZapfyTypes.GroupSettingsUpdateParams,
+        ): Promise<ZapfyTypes.DefaultZapfyResultObject<void>> => {
+            try {
+                const { 
+                    instanceKey,
+                    instanceToken,
+                    groupId,
+                    setting,
+                } = params;
+ 
+                const response = await client.post<
+                    ZapfyTypes.DefaultZapfyResultObject<void>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<void>> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/groupSettingUpdate`, { 
+                    groupId,  
+                    setting,
+                });
+ 
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+    }
 }
