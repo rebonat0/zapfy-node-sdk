@@ -492,7 +492,7 @@ export namespace ZapfySdk {
 
         export const groupMetadata = async (
             params: ZapfyTypes.GroupInviteCodeParams,
-        ): Promise<ZapfyTypes.DefaultZapfyResultObject<string>> => {
+        ): Promise<ZapfyTypes.DefaultZapfyResultObject<ZapfyTypes.GroupMetadata>> => {
             try {
                 const { 
                     instanceKey,
@@ -501,8 +501,8 @@ export namespace ZapfySdk {
                 } = params;
  
                 const response = await client.post<
-                    ZapfyTypes.DefaultZapfyResultObject<string>,
-                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<string>> 
+                    ZapfyTypes.DefaultZapfyResultObject<ZapfyTypes.GroupMetadata>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<ZapfyTypes.GroupMetadata>> 
                 >(`/instance/${instanceKey}/token/${instanceToken}/groupMetadata`, { groupId });
  
                 return response.data;
