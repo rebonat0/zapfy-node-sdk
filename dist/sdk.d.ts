@@ -29,7 +29,7 @@ export declare namespace ZapfySdk {
         const groupUpdateDescription: (params: ZapfyTypes.GroupUpdateDescriptionParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<void>>;
         const groupInviteCode: (params: ZapfyTypes.GroupInviteCodeParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<string>>;
         const groupRevokeInvite: (params: ZapfyTypes.GroupInviteCodeParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<string>>;
-        const groupMetadata: (params: ZapfyTypes.GroupInviteCodeParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<string>>;
+        const groupMetadata: (params: ZapfyTypes.GroupInviteCodeParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<ZapfyTypes.GroupMetadata>>;
         const groupParticipantsUpdate: (params: ZapfyTypes.GroupParticipantsUpdateParams) => Promise<ZapfyTypes.DefaultZapfyResultObject<{
             status: string;
             jid: string;
