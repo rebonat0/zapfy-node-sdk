@@ -138,5 +138,5 @@ export namespace ZapfyTypes {
     export type UpdateProfilePictureResult = DefaultZapfyResultObject<string>;
     export type BlockUserResult = DefaultZapfyResultObject<boolean>;
     export type GetBusinessProfileResult = DefaultZapfyResultObject<BussinessProfileInfo>;
-    export type DefaultMessageResponse = DefaultZapfyResultObject<{}>;
+    export type DefaultMessageResponse = DefaultZapfyResultObject<{ id: string }>;
 }
