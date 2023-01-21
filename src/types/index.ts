@@ -28,6 +28,7 @@ export namespace ZapfyTypes {
         isSuperAdmin?: boolean;
         admin?: 'admin' | 'superadmin' | null;
     });
+
     export interface GroupMetadata {
         id: string;
         owner: string | undefined;
@@ -53,6 +54,7 @@ export namespace ZapfyTypes {
     export type GroupUpdateSubjectParams = DefaultParams & { groupId: string, subject: string };
     export type GroupUpdateDescriptionParams = DefaultParams & { groupId: string, description: string };
     export type GroupInviteCodeParams = DefaultParams & { groupId: string };
+    export type GroupGetInviteInfoParams = DefaultParams & { invite: string };
     export type GroupParticipantsUpdateParams = DefaultParams & { groupId: string, participants: string[], action: 'add' | 'demote' | 'promote' | 'remove' };
     export type GroupSettingsUpdateParams = DefaultParams & { groupId: string, setting: 'announcement' | 'not_announcement' | 'unlocked' | 'locked'};
 
@@ -139,4 +141,26 @@ export namespace ZapfyTypes {
     export type BlockUserResult = DefaultZapfyResultObject<boolean>;
     export type GetBusinessProfileResult = DefaultZapfyResultObject<BussinessProfileInfo>;
     export type DefaultMessageResponse = DefaultZapfyResultObject<{ id: string }>;
+
+    export declare type WAMessageUpdate = {
+       
+    };
+
+    export namespace Webhooks {
+ 
+        export type KnowTypes = 'NEW-MESSAGE' | 'MESSAGE-UPDATED' | 'INSTANCE-DISCONNECTED' | 'INSTANCE-CONNECTED';
+        export interface NewMessage {
+            instanceKey: string,
+            id: string,
+            type: 'NEW-MESSAGE',
+        }
+
+        export interface MessageUpdated {
+            instanceKey: string,
+            id: string,
+            type: 'MESSAGE-UPDATED',
+        }
+
+        export type Content = NewMessage | MessageUpdated;
+    }   
 }

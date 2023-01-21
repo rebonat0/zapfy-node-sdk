@@ -511,6 +511,21 @@ export namespace ZapfySdk {
             }
         }
 
+        export const groupGetInviteInfo = async (params: ZapfyTypes.GroupGetInviteInfoParams) => {
+            try {
+                const { instanceKey, instanceToken, invite } = params;
+
+                const response = await client.post<
+                    ZapfyTypes.DefaultZapfyResultObject<ZapfyTypes.GroupMetadata>,
+                    AxiosResponse<ZapfyTypes.DefaultZapfyResultObject<ZapfyTypes.GroupMetadata>> 
+                >(`/instance/${instanceKey}/token/${instanceToken}/groupGetInviteInfo`, { invite });
+
+                return response.data;
+            } catch (err: any) {
+                throw new Error(err);
+            }
+        }
+
         export const groupParticipantsUpdate = async (
             params: ZapfyTypes.GroupParticipantsUpdateParams,
         ): Promise<ZapfyTypes.DefaultZapfyResultObject<{ status: string, jid: string }[]>> => {
